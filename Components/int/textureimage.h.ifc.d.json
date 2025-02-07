@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\codes\\opengl\\vksamples_ogl\\components\\textureimage.h",
+        "ProvidedModule": "",
+        "Includes": [
+            "e:\\codes\\opengl\\vksamples_ogl\\components\\texturebase.h",
+            "e:\\codes\\opengl\\vksamples_ogl\\third_party\\glfw\\glad\\include\\glad\\glad.h",
+            "e:\\codes\\opengl\\vksamples_ogl\\third_party\\glfw\\glad\\include\\khr\\khrplatform.h",
+            "e:\\codes\\opengl\\vksamples_ogl\\components\\nocopyable.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
