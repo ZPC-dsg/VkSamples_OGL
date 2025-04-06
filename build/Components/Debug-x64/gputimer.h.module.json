@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\gpuTimer.h.obj",
+            "outputs": [
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\Components.pdb",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\gpuTimer.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "gpuTimer.h",
+                    "source-path": "e:\\codes\\opengl\\vksamples_ogl\\components\\gputimer.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

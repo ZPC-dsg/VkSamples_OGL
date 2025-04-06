@@ -6,12 +6,8 @@
 #include <random>
 
 Compute_nBody::Compute_nBody() {
-	globalSettings::mainCamera.type = CameraType::LookAt;
-
 	globalSettings::mainCamera.set_perspective(60.0f, globalSettings::screen_width, globalSettings::screen_height, 512.0f, 0.1f);
-	globalSettings::mainCamera.set_rotation(glm::vec3(-26.0f, 75.0f, 0.0f));
 	globalSettings::mainCamera.set_position(glm::vec3(0.0f, 0.0f, -14.0f));
-	globalSettings::mainCamera.translation_speed = 2.5f;
 }
 
 Compute_nBody::~Compute_nBody() {
@@ -179,6 +175,8 @@ void Compute_nBody::draw() {
 	GL_CALL(GraphicsResources.shader->use());
 	glBindVertexArray(GraphicsResources.VAO);
 	GL_CALL(glDrawArrays(GL_POINTS, 0, num_particles));
+
+	prepare_ui("Frame Time Window");
 }
 
 void Compute_nBody::compute() {
@@ -193,3 +191,15 @@ void Compute_nBody::compute() {
 	glMemoryBarrier(GL_SHADER_STORAGE_BARRIER_BIT);
 }
 
+void Compute_nBody::prepare_ui(const std::string& name) {
+	ui_newFrame();
+
+	ImGui::Begin(name.c_str());
+
+	ImGui::Text("Frame time:  %f s", globalSettings::deltaTime);
+	ImGui::Text("Framerate:  %f", 1.0 / globalSettings::deltaTime);
+
+	ImGui::End();
+
+	draw_ui();
+}

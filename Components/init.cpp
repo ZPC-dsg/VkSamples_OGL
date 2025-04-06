@@ -6,9 +6,15 @@ unsigned int globalSettings::screen_width = 1280;
 unsigned int globalSettings::screen_height = 720;
 float globalSettings::deltaTime = 0.0f;
 float globalSettings::lastFrame = 0.0f;
+float globalSettings::lastX = 0.0f;
+float globalSettings::lastY = 0.0f;
+bool globalSettings::firstMouse = true;
+
 Camera globalSettings::mainCamera = Camera();
 GLFWwindow* globalSettings::mainWindow = nullptr;
 GLfloat globalSettings::max_anisotropy = 0.0;
+
+const int globalSettings::max_gpu_timer_count = 1000;
 
 globalSettings::DebugInfo globalSettings::debugInfo{ nullptr,0 };
 
@@ -30,11 +36,19 @@ void init() {
     glfwSetFramebufferSizeCallback(globalSettings::mainWindow, framebuffer_size_callback);
     glfwSetScrollCallback(globalSettings::mainWindow, scroll_callback);
     glfwSetCursorPosCallback(globalSettings::mainWindow, mouse_callback);
+    glfwSetKeyCallback(globalSettings::mainWindow, key_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         throw std::runtime_error("Failed to initialize GLAD");
     }
+
+    const char* glsl_version = "#version 150";
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGui::StyleColorsDark();
+    ImGui_ImplGlfw_InitForOpenGL(globalSettings::mainWindow, true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
 
     GLint flags;
     glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
@@ -53,6 +67,10 @@ void init() {
 }
 
 void fin() {
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+
     glfwDestroyWindow(globalSettings::mainWindow);
     glfwTerminate();
 }
@@ -66,12 +84,46 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-    globalSettings::mainCamera.ProcessMouseScroll(static_cast<float>(yoffset));
+    if (globalSettings::mainCamera.isFree) {
+        globalSettings::mainCamera.ProcessMouseScroll(static_cast<float>(yoffset));
+    }
 }
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 {
-    //Waiting for further implementation
+    if (globalSettings::mainCamera.isFree) {
+        float xpos = static_cast<float>(xposIn);
+        float ypos = static_cast<float>(yposIn);
+
+        if (globalSettings::firstMouse)
+        {
+            globalSettings::lastX = xpos;
+            globalSettings::lastY = ypos;
+            globalSettings::firstMouse = false;
+        }
+
+        float xoffset = xpos - globalSettings::lastX;
+        float yoffset = globalSettings::lastY - ypos; 
+
+        globalSettings::lastX = xpos;
+        globalSettings::lastY = ypos;
+
+        globalSettings::mainCamera.ProcessMouseMovement(xoffset, yoffset);
+    }
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_C && action == GLFW_PRESS) {
+        if (globalSettings::mainCamera.isFree) {
+            globalSettings::mainCamera.isFree = false;
+            glfwSetInputMode(globalSettings::mainWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            globalSettings::firstMouse = true;
+        }
+        else {
+            globalSettings::mainCamera.isFree = true;
+            glfwSetInputMode(globalSettings::mainWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        }
+    }
 }
 
 void APIENTRY glDebugOutput(GLenum source,
@@ -125,5 +177,3 @@ void APIENTRY glDebugOutput(GLenum source,
         << " (File: " << info->file
         << ", Line: " << info->line << ")" << std::endl;
 }
-
-

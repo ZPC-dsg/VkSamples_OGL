@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -116,7 +116,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(SolutionDir)Components\;$(SolutionDir)\Samples\APIs\compute_nbody\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(SolutionDir)Components\;$(SolutionDir)\Samples\APIs\compute_nbody\;$(SolutionDir)third_party\imgui\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,6 +124,12 @@
       <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022\;$(SolutionDir)third_party\;$(SolutionDir)Components\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;components.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>glfw3.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)bin\$(Configuration)-$(PlatForm)\third_party\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -134,7 +140,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(SolutionDir)Components\;$(SolutionDir)\Samples\APIs\compute_nbody\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(SolutionDir)Components\;$(SolutionDir)\Samples\APIs\compute_nbody\;$(SolutionDir)third_party\imgui\backends\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,6 +150,12 @@
       <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022\;$(SolutionDir)third_party\;$(SolutionDir)Components\bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;components.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalDependencies>glfw3.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022;$(SolutionDir)bin\$(Configuration)-$(PlatForm)\third_party\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Samples\APIs\compute_nbody\compute_nbody.h" />

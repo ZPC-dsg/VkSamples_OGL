@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.obj",
+            "outputs": [
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.h_92B3F8880E51EA44.ifc.dt.module.json",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.h_92B3F8880E51EA44.ifc.dt.d.json",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "E:\\codes\\openGL\\VkSamples_OGL\\Components\\nocopyable.h",
+                    "source-path": "e:\\codes\\opengl\\vksamples_ogl\\components\\nocopyable.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

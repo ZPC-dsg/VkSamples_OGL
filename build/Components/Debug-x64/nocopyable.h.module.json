@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.h.obj",
+            "outputs": [
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\Components.pdb",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\nocopyable.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "nocopyable.h",
+                    "source-path": "e:\\codes\\opengl\\vksamples_ogl\\components\\nocopyable.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

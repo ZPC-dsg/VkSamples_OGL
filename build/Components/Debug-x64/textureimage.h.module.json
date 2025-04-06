@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\textureimage.h.obj",
+            "outputs": [
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\Components.pdb",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\",
+                "E:\\codes\\openGL\\VkSamples_OGL\\build\\Components\\Debug-x64\\textureimage.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "textureimage.h",
+                    "source-path": "e:\\codes\\opengl\\vksamples_ogl\\components\\textureimage.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

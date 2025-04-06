@@ -1,0 +1,15 @@
+E:/software/assimp/assimp-5.2.4/build/CMakeFiles/uninstall.dir
+E:/software/assimp/assimp-5.2.4/build/CMakeFiles/UpdateAssimpLibsDebugSymbolsAndDLLs.dir
+E:/software/assimp/assimp-5.2.4/build/CMakeFiles/INSTALL.dir
+E:/software/assimp/assimp-5.2.4/build/CMakeFiles/ALL_BUILD.dir
+E:/software/assimp/assimp-5.2.4/build/CMakeFiles/ZERO_CHECK.dir
+E:/software/assimp/assimp-5.2.4/build/contrib/zlib/CMakeFiles/zlibstatic.dir
+E:/software/assimp/assimp-5.2.4/build/contrib/zlib/CMakeFiles/INSTALL.dir
+E:/software/assimp/assimp-5.2.4/build/contrib/zlib/CMakeFiles/ALL_BUILD.dir
+E:/software/assimp/assimp-5.2.4/build/code/CMakeFiles/assimp.dir
+E:/software/assimp/assimp-5.2.4/build/code/CMakeFiles/INSTALL.dir
+E:/software/assimp/assimp-5.2.4/build/tools/assimp_cmd/CMakeFiles/assimp_cmd.dir
+E:/software/assimp/assimp-5.2.4/build/tools/assimp_cmd/CMakeFiles/INSTALL.dir
+E:/software/assimp/assimp-5.2.4/build/test/CMakeFiles/unit.dir
+E:/software/assimp/assimp-5.2.4/build/test/CMakeFiles/INSTALL.dir
+E:/software/assimp/assimp-5.2.4/build/test/headercheck/CMakeFiles/INSTALL.dir

@@ -3,11 +3,6 @@
 #include <buffer.h>
 #include <texturebase.h>
 
-void Utils::processInput(GLFWwindow* window) 
-{
-    //Waiting for further implementation
-}
-
 Utils::Utils() {
     genCube();
     genQuad();
@@ -133,7 +128,7 @@ void Utils::start() {
         globalSettings::deltaTime = currentFrame - globalSettings::lastFrame;
         globalSettings::lastFrame = currentFrame;
 
-        processInput(globalSettings::mainWindow);
+        processInput();
 
         render();
 
@@ -152,4 +147,31 @@ void Utils::terminate() {
     glBindTexture(GL_TEXTURE_2D, 0);
     glBindImageTexture(0, 0, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
     glUseProgram(0);
+}
+
+void Utils::draw_ui() {
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+void Utils::ui_newFrame() {
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+}
+
+void Utils::processInput() {
+    if (glfwGetKey(globalSettings::mainWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(globalSettings::mainWindow, true);
+
+    if (globalSettings::mainCamera.isFree) {
+        if (glfwGetKey(globalSettings::mainWindow, GLFW_KEY_W) == GLFW_PRESS)
+            globalSettings::mainCamera.ProcessKeyboard(FORWARD, globalSettings::deltaTime);
+        if (glfwGetKey(globalSettings::mainWindow, GLFW_KEY_S) == GLFW_PRESS)
+            globalSettings::mainCamera.ProcessKeyboard(BACKWARD, globalSettings::deltaTime);
+        if (glfwGetKey(globalSettings::mainWindow, GLFW_KEY_A) == GLFW_PRESS)
+            globalSettings::mainCamera.ProcessKeyboard(LEFT, globalSettings::deltaTime);
+        if (glfwGetKey(globalSettings::mainWindow, GLFW_KEY_D) == GLFW_PRESS)
+            globalSettings::mainCamera.ProcessKeyboard(RIGHT, globalSettings::deltaTime);
+    }
 }

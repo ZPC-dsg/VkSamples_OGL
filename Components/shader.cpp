@@ -1,4 +1,5 @@
 #include <shader.h>
+#include <tools.h>
 
 Shader::Shader(const char* projectName, const char* vertexPath, const char* fragmentPath, const char* geometryPath)
 {
@@ -16,8 +17,9 @@ Shader::Shader(const char* projectName, const char* vertexPath, const char* frag
     try
     {
         // open files
-        std::string vertPath = "../Shaders/" + std::string(projectName) + std::string("/") + vertexPath;
-        std::string fragPath = "../Shaders/" + std::string(projectName) + std::string("/") + fragmentPath;
+        std::string abs_dir = Tools::get_solution_dir() + "Shaders/";
+        std::string vertPath = abs_dir + std::string(projectName) + std::string("/") + vertexPath;
+        std::string fragPath = abs_dir + std::string(projectName) + std::string("/") + fragmentPath;
         vShaderFile.open(vertPath);
         fShaderFile.open(fragPath);
         std::stringstream vShaderStream, fShaderStream;
@@ -33,7 +35,7 @@ Shader::Shader(const char* projectName, const char* vertexPath, const char* frag
         // if geometry shader path is present, also load a geometry shader
         if (geometryPath != nullptr)
         {
-            std::string geoPath = "../Shaders/" + std::string(projectName) + std::string("/") + geometryPath;
+            std::string geoPath = abs_dir + std::string(projectName) + std::string("/") + geometryPath;
             gShaderFile.open(geoPath);
             std::stringstream gShaderStream;
             gShaderStream << gShaderFile.rdbuf();

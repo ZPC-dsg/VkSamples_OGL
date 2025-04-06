@@ -1,4 +1,5 @@
 #include <computeshader.h>
+#include <tools.h>
 
 ComputeShader::ComputeShader(const char* projectName, const char* computePath)
 {
@@ -8,7 +9,8 @@ ComputeShader::ComputeShader(const char* projectName, const char* computePath)
     cShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     try
     {
-        std::string compPath = "../Shaders/" + std::string(projectName) + std::string("/") + computePath;
+        std::string abs_dir = Tools::get_solution_dir() + "Shaders/";
+        std::string compPath = abs_dir + std::string(projectName) + std::string("/") + computePath;
         cShaderFile.open(compPath);
         std::stringstream cShaderStream;
         cShaderStream << cShaderFile.rdbuf();

@@ -71,13 +71,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)bin\</OutDir>
-    <IntDir>$(ProjectDir)int\</IntDir>
+    <OutDir>$(SolutionDir)build\Components\$(Configuration)-$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)build\Components\$(Configuration)-$(Platform)\</IntDir>
     <LibraryPath>$(SolutionDir)third_party\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)bin\</OutDir>
-    <IntDir>$(ProjectDir)int\</IntDir>
+    <OutDir>$(SolutionDir)build\Components\$(Configuration)-$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)build\Components\$(Configuration)-$(Platform)\</IntDir>
     <LibraryPath>$(SolutionDir)third_party\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -115,12 +115,16 @@
       <PreprocessorDefinitions>SOLUTION_DIR=$(SolutionDir);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)build\third_party\libs\$(Configuration)-$(Platform)\;$(SolutionDir)third_party\assimp\build\lib\Debug\;$(SolutionDir)third_party\libs\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -131,7 +135,7 @@
       <PreprocessorDefinitions>SOLUTION_DIR=$(SolutionDir);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,24 +143,39 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)build\third_party\libs\$(Configuration)-$(Platform)\;$(SolutionDir)third_party\assimp\build\lib\Debug\;$(SolutionDir)third_party\libs\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\lib-vc2022\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;assimp-vc143-mtd.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="buffer.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="computeshader.h" />
+    <ClInclude Include="cpuTimer.h" />
+    <ClInclude Include="geometry.h" />
     <ClInclude Include="init.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="models.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="storageimage.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="texturebase.h" />
     <ClInclude Include="texturebuilder.h" />
+    <ClInclude Include="tools.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="computeshader.cpp" />
+    <ClCompile Include="cpuTimer.cpp" />
+    <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="gpuTimer.cpp" />
+    <ClCompile Include="gpuTimer.h" />
     <ClCompile Include="init.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="models.cpp" />
     <ClCompile Include="nocopyable.cpp" />
     <ClCompile Include="nocopyable.h" />
     <ClCompile Include="shader.cpp" />
@@ -166,7 +185,13 @@
     <ClCompile Include="texturebuilder.cpp" />
     <ClCompile Include="textureimage.cpp" />
     <ClCompile Include="textureimage.h" />
+    <ClCompile Include="tools.cpp" />
     <ClCompile Include="utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\build\third_party\imgui\imgui.vcxproj">
+      <Project>{ae1102fe-e3bb-49e4-8a61-56f3fce6b342}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

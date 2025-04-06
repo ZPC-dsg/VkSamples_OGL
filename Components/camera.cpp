@@ -3,8 +3,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-Camera::Camera(glm::vec3 position, glm::vec3 rotation, float near, float far, float zoom) : Position(position), Rotation(rotation), zNear(near), zFar(far), fov(zoom)
-{}
+const glm::vec3 Camera::WorldUp = glm::vec3(0.0, 1.0, 0.0);
+
+Camera::Camera(glm::vec3 position, float yaw, float pitch, float near, float far, float zoom) : m_position(position), m_yaw(yaw), m_pitch(pitch),
+zNear(near), zFar(far), fov(zoom)
+{
+}
 
 void Camera::ProcessMouseScroll(float yoffset)
 {
@@ -14,59 +18,90 @@ void Camera::ProcessMouseScroll(float yoffset)
     if (fov > 45.0f)
         fov = 45.0f;
 
-	updated = true;
+    updated = true;
 }
 
-void Camera::set_position(const glm::vec3& pos) {
-    Position = pos;
+void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
+{
+    float velocity = MovementSpeed * deltaTime;
+    if (direction == FORWARD)
+        m_position += Front() * velocity;
+    if (direction == BACKWARD)
+        m_position -= Front() * velocity;
+    if (direction == LEFT)
+        m_position -= Right() * velocity;
+    if (direction == RIGHT)
+        m_position += Right() * velocity;
+
     updateViewMatrix();
 }
 
-void Camera::set_rotation(const glm::vec3& rot) {
-    Rotation = rot;
+void Camera::ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch)
+{
+    xoffset *= MouseSensitivity;
+    yoffset *= MouseSensitivity;
+
+    m_yaw += xoffset;
+    m_pitch += yoffset;
+
+    if (constrainPitch)
+    {
+        if (m_pitch > 89.0f)
+            m_pitch = 89.0f;
+        if (m_pitch < -89.0f)
+            m_pitch = -89.0f;
+    }
+
+    updateViewMatrix();
+}
+
+void Camera::set_position(const glm::vec3& pos) {
+    m_position = pos;
     updateViewMatrix();
 }
 
 void Camera::set_perspective(float zoom, unsigned int width, unsigned int height, float near, float far) {
-	fov = zoom;
-	zNear = near;
-	zFar = far;
-	matrices.perspective = glm::perspective(glm::radians(fov), static_cast<float>(width) / static_cast<float>(height), near, far);
+    fov = zoom;
+    zNear = near;
+    zFar = far;
+    matrices.perspective = glm::perspective(glm::radians(fov), static_cast<float>(width) / static_cast<float>(height), near, far);
 }
 
 void Camera::translate(const glm::vec3& delta) {
-	Position += delta;
-	updateViewMatrix();
-}
-
-void Camera::rotate(const glm::vec3& delta) {
-	Rotation += delta;
-	updateViewMatrix();
+    m_position += delta;
+    updateViewMatrix();
 }
 
 void Camera::update_aspect_ratio(unsigned int width, unsigned int height) {
-	matrices.perspective = glm::perspective(glm::radians(fov), (float)width / (float)height, zNear, zFar);
-	updated = true;
+    matrices.perspective = glm::perspective(glm::radians(fov), (float)width / (float)height, zNear, zFar);
+    updated = true;
 }
 
 void Camera::updateViewMatrix()
 {
-	glm::mat4 rotation_matrix = glm::mat4(1.0f);
-	glm::mat4 transformation_matrix;
+    matrices.view = glm::lookAt(m_position, Front() + m_position, Up());
+}
 
-	rotation_matrix = glm::rotate(rotation_matrix, glm::radians(Rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-	rotation_matrix = glm::rotate(rotation_matrix, glm::radians(Rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-	rotation_matrix = glm::rotate(rotation_matrix, glm::radians(Rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+glm::vec3 Camera::Front() const
+{
+    glm::vec3 front;
+    front.x = cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+    front.y = sin(glm::radians(m_pitch));
+    front.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
 
-	transformation_matrix = glm::translate(glm::mat4(1.0f), Position);
+    return glm::normalize(front);
+}
 
-	if (type == CameraType::FirstPerson)
-	{
-		matrices.view = rotation_matrix * transformation_matrix;
-	}
-	else
-	{
-		matrices.view = transformation_matrix * rotation_matrix;
-	}
+glm::vec3 Camera::Right() const
+{
+    if (m_pitch > 89.0f || m_pitch < -89.0f) {
+        return glm::vec3(1.0, 0.0, 0.0);
+    }
 
+    return glm::normalize(glm::cross(Front(), WorldUp));
+}
+
+glm::vec3 Camera::Up() const
+{
+    return glm::normalize(glm::cross(Right(), Front()));
 }

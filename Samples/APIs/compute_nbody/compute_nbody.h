@@ -16,6 +16,7 @@ public:
 
 	virtual void render() override;
 	virtual void prepare() override;
+	virtual void prepare_ui(const std::string& name) override;
 
 private:
 	uint32_t num_particles;

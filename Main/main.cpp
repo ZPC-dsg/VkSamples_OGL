@@ -1,10 +1,11 @@
 #include <compute_nbody.h>
+#include <sceneTest.h>
 #include <stb_image.h>
 
 int main() {
 	init();
 
-	Compute_nBody app;
+	Test app;
 	app.start();
 
 	fin();
