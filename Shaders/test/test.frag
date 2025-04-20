@@ -6,5 +6,5 @@ in vec2 texCoord;
 
 void main ()
 {
-    color = vec4(1.0);
+    color = vec4(texCoord, 1.0, 1.0);
 }

@@ -13,6 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Bindables">
+      <UniqueIdentifier>{ce8b7cb4-7acd-446f-8a61-aa65d4164295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drawables">
+      <UniqueIdentifier>{7c7e13ec-ef00-43a6-a4f2-fe72ae3174fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bindables\头文件">
+      <UniqueIdentifier>{e88ba3ea-a5c8-4491-a064-223f6d48c820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bindables\源文件">
+      <UniqueIdentifier>{44b093b2-160b-4269-baa8-bdd4a164637d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Jobber">
+      <UniqueIdentifier>{c205c1d6-523a-4d75-87c1-0fbe3402af84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Jobber\头文件">
+      <UniqueIdentifier>{97eaa658-dd2e-4c6d-9298-17a1b5b696c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Jobber\源文件">
+      <UniqueIdentifier>{04bfd99b-17cc-4492-84ea-ba13f049f75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drawables\头文件">
+      <UniqueIdentifier>{fd608473-a496-4bfa-b962-c191cd8e3fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drawables\源文件">
+      <UniqueIdentifier>{2a992ca5-36d0-468e-bdbf-20b5884ca026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Macros">
+      <UniqueIdentifier>{5738145e-cf66-4682-b3a8-55fa8d8e3e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamic">
+      <UniqueIdentifier>{345e9a19-5e13-4d0c-99a4-8cbd9ff5fceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamic\头文件">
+      <UniqueIdentifier>{179c1bc5-1cb3-4b63-a962-ba86c38e2b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dynamic\源文件">
+      <UniqueIdentifier>{3b7950d4-d44e-48e6-9114-e35d59550045}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -59,6 +98,48 @@
     </ClInclude>
     <ClInclude Include="tools.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\bindable.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Jobber\technique_probe.h">
+      <Filter>Jobber\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawables\drawable.h">
+      <Filter>Drawables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\bindable_resolver.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\blendstate.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros\conditional_noexcept.h">
+      <Filter>Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic\dynamic_vertex.h">
+      <Filter>Dynamic\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\vertexbuffer.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\indexbuffer.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\dsstate.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcefactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\inputlayout.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic\shader_reflection.h">
+      <Filter>Dynamic\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\shaderprogram.h">
+      <Filter>Bindables\头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +205,39 @@
     </ClCompile>
     <ClCompile Include="tools.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Jobber\technique_probe.cpp">
+      <Filter>Jobber\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawables\drawable.cpp">
+      <Filter>Drawables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\blendstate.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic\dynamic_vertex.cpp">
+      <Filter>Dynamic\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\vertexbuffer.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\indexbuffer.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\dsstate.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resourcefactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\inputlayout.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic\shader_reflection.cpp">
+      <Filter>Dynamic\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\shaderprogram.cpp">
+      <Filter>Bindables\源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

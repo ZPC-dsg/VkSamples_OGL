@@ -1,5 +1,6 @@
 #include "sceneTest.h"
 
+/*
 Test::Test() {
 	globalSettings::mainCamera.set_perspective(60.0f, globalSettings::screen_width, globalSettings::screen_height, 512.0f, 0.1f);
 	globalSettings::mainCamera.set_position(glm::vec3(0.0f, 0.0f, 4.0f));
@@ -42,3 +43,4 @@ void Test::prepare() {
 void Test::prepare_ui(const std::string& name) {
 
 }
+*/

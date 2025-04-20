@@ -1,11 +1,11 @@
 #include <compute_nbody.h>
-#include <sceneTest.h>
+#include <dvtxTest.h>
 #include <stb_image.h>
 
 int main() {
 	init();
 
-	Test app;
+	DvtxTest app;
 	app.start();
 
 	fin();

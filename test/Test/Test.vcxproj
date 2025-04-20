@@ -149,6 +149,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dvtxTest.cpp" />
     <ClCompile Include="sceneTest.cpp" />
     <ClCompile Include="sceneTest.h" />
   </ItemGroup>
@@ -156,6 +157,9 @@
     <ProjectReference Include="..\..\Components\Components.vcxproj">
       <Project>{af24057a-c831-4299-82ee-81df1a19420a}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dvtxTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

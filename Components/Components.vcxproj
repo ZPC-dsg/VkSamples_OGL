@@ -149,14 +149,28 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bindables\bindable.h" />
+    <ClInclude Include="Bindables\bindable_resolver.h" />
+    <ClInclude Include="Bindables\blendstate.h" />
+    <ClInclude Include="Bindables\dsstate.h" />
+    <ClInclude Include="Bindables\indexbuffer.h" />
+    <ClInclude Include="Bindables\inputlayout.h" />
+    <ClInclude Include="Bindables\shaderprogram.h" />
+    <ClInclude Include="Bindables\vertexbuffer.h" />
     <ClInclude Include="buffer.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="computeshader.h" />
     <ClInclude Include="cpuTimer.h" />
+    <ClInclude Include="Drawables\drawable.h" />
+    <ClInclude Include="Dynamic\dynamic_vertex.h" />
+    <ClInclude Include="Dynamic\shader_reflection.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="init.h" />
+    <ClInclude Include="Jobber\technique_probe.h" />
+    <ClInclude Include="Macros\conditional_noexcept.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="models.h" />
+    <ClInclude Include="resourcefactory.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="storageimage.h" />
     <ClInclude Include="test.h" />
@@ -166,18 +180,29 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bindables\blendstate.cpp" />
+    <ClCompile Include="Bindables\dsstate.cpp" />
+    <ClCompile Include="Bindables\indexbuffer.cpp" />
+    <ClCompile Include="Bindables\inputlayout.cpp" />
+    <ClCompile Include="Bindables\shaderprogram.cpp" />
+    <ClCompile Include="Bindables\vertexbuffer.cpp" />
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="computeshader.cpp" />
     <ClCompile Include="cpuTimer.cpp" />
+    <ClCompile Include="Drawables\drawable.cpp" />
+    <ClCompile Include="Dynamic\dynamic_vertex.cpp" />
+    <ClCompile Include="Dynamic\shader_reflection.cpp" />
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="gpuTimer.cpp" />
     <ClCompile Include="gpuTimer.h" />
     <ClCompile Include="init.cpp" />
+    <ClCompile Include="Jobber\technique_probe.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="models.cpp" />
     <ClCompile Include="nocopyable.cpp" />
     <ClCompile Include="nocopyable.h" />
+    <ClCompile Include="resourcefactory.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="storageimage.cpp" />
     <ClCompile Include="test.cpp" />

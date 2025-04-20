@@ -38,6 +38,8 @@ public:
         return m_model;
     }
 
+    inline const GeometryData& get_data() const noexcept { return m_data; }
+
 protected:
     void genBuffers();
 

@@ -5,6 +5,7 @@
 #include <models.h>
 #include <geometry.h>
 
+/*
 class Test : public Utils {
 public:
 	Test();
@@ -28,3 +29,4 @@ public:
 	glm::mat4 box_MVP;
 	glm::mat4 sphere_MVP;
 };
+*/
