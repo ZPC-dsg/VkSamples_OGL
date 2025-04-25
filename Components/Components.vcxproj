@@ -149,14 +149,22 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bindables\abstracttexture.h" />
     <ClInclude Include="Bindables\bindable.h" />
     <ClInclude Include="Bindables\bindable_resolver.h" />
     <ClInclude Include="Bindables\blendstate.h" />
+    <ClInclude Include="Bindables\cubemap.h" />
     <ClInclude Include="Bindables\dsstate.h" />
+    <ClInclude Include="Bindables\imagetexture2D.h" />
+    <ClInclude Include="Bindables\imagetexture2Darray.h" />
+    <ClInclude Include="Bindables\includer.h" />
     <ClInclude Include="Bindables\indexbuffer.h" />
     <ClInclude Include="Bindables\inputlayout.h" />
+    <ClInclude Include="Bindables\rasterizer.h" />
+    <ClInclude Include="Bindables\rendertarget.h" />
     <ClInclude Include="Bindables\shaderprogram.h" />
     <ClInclude Include="Bindables\vertexbuffer.h" />
+    <ClInclude Include="Bindables\viewscissor.h" />
     <ClInclude Include="buffer.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="computeshader.h" />
@@ -170,6 +178,7 @@
     <ClInclude Include="Macros\conditional_noexcept.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="models.h" />
+    <ClInclude Include="ogl_structures.h" />
     <ClInclude Include="resourcefactory.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="storageimage.h" />
@@ -180,12 +189,20 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bindables\abstracttexture.cpp" />
+    <ClCompile Include="Bindables\bindable.cpp" />
     <ClCompile Include="Bindables\blendstate.cpp" />
+    <ClCompile Include="Bindables\cubemap.cpp" />
     <ClCompile Include="Bindables\dsstate.cpp" />
+    <ClCompile Include="Bindables\imagetexture2D.cpp" />
+    <ClCompile Include="Bindables\imagetexture2Darray.cpp" />
     <ClCompile Include="Bindables\indexbuffer.cpp" />
     <ClCompile Include="Bindables\inputlayout.cpp" />
+    <ClCompile Include="Bindables\rasterizer.cpp" />
+    <ClCompile Include="Bindables\rendertarget.cpp" />
     <ClCompile Include="Bindables\shaderprogram.cpp" />
     <ClCompile Include="Bindables\vertexbuffer.cpp" />
+    <ClCompile Include="Bindables\viewscissor.cpp" />
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="computeshader.cpp" />
@@ -202,6 +219,7 @@
     <ClCompile Include="models.cpp" />
     <ClCompile Include="nocopyable.cpp" />
     <ClCompile Include="nocopyable.h" />
+    <ClCompile Include="ogl_structures.cpp" />
     <ClCompile Include="resourcefactory.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="storageimage.cpp" />

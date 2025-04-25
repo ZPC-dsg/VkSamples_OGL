@@ -2,13 +2,13 @@
 
 namespace Bind {
 	IndexBuffer::IndexBuffer(const std::string& tag, const std::vector<uint32_t>& indices)
-		:m_tag(tag), m_count(indices.size()) {
-		m_buffer = ResourceFactory::CreateBuffer(indices.size() * sizeof(uint32_t), GL_DYNAMIC_STORAGE_BIT);
+		:m_count(indices.size()) {
+		m_buffer = std::dynamic_pointer_cast<RawBuffer>(ResourceFactory::CreateBuffer(tag, indices.size() * sizeof(uint32_t), GL_DYNAMIC_STORAGE_BIT));
 		m_buffer->Update(indices.size() * sizeof(uint32_t), 0, indices.data());
 	}
 
-	IndexBuffer::IndexBuffer(const std::string& tag, int count, std::shared_ptr<RawBuffer> buffer)
-		:m_tag(tag), m_count(count) {
+	IndexBuffer::IndexBuffer(int count, std::shared_ptr<RawBuffer> buffer)
+		:m_count(count) {
 		m_buffer = buffer;
 	}
 
@@ -17,7 +17,7 @@ namespace Bind {
 	}
 
 	std::string IndexBuffer::GetUID() const noexcept {
-		return genID_impl(m_tag);
+		return genID_impl(resource_name());
 	}
 
 	std::string IndexBuffer::genID_impl(const std::string& tag) {

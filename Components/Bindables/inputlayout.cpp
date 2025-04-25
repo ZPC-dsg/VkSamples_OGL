@@ -1,10 +1,11 @@
 #include <Bindables/inputlayout.h>
 
 namespace Bind {
-	InputLayout::InputLayout(std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index)
-		:m_vertex(vertex), m_index(index) {
+	InputLayout::InputLayout(const std::string& tag, std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index)
+		:m_vertex(vertex), m_index(index), m_tag(tag) {
 		glGenVertexArrays(1, &m_VAO);
 		bind_impl();
+		glObjectLabel(GL_VERTEX_ARRAY, m_VAO, -1, m_tag.c_str());
 	}
 
 	void InputLayout::bind_impl() noxnd {
@@ -16,7 +17,7 @@ namespace Bind {
 			v->Bind();
 			
 			const VertexLayout& layout = v->get_layout();
-			std::vector<VertexLayout::OGL_INPUT_ELEMENT_DESC> descs = layout.GetOGLLayout();
+			std::vector<OGL_INPUT_ELEMENT_DESC> descs = layout.GetOGLLayout();
 			VertexLayout::InputClassification cl = layout.GetInputClassification();
 			VertexLayout::InputSteppingType st = layout.GetInputSteppingType();
 			GLsizei stride = st == VertexLayout::InputSteppingType::Interleaved ? layout.VertexSize() : 0;
@@ -47,14 +48,14 @@ namespace Bind {
 		glBindVertexArray(m_VAO);
 	}
 
-	std::shared_ptr<InputLayout> InputLayout::Resolve(std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index) {
-		return BindableResolver::Resolve<InputLayout>(vertex, index);
+	std::shared_ptr<InputLayout> InputLayout::Resolve(const std::string& tag, std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index) {
+		return BindableResolver::Resolve<InputLayout>(tag, vertex, index);
 	}
 
-	std::string InputLayout::GenerateUID(std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index) {
+	std::string InputLayout::GenerateUID(const std::string& tag, std::vector<std::shared_ptr<VertexBuffer>> vertex, std::shared_ptr<IndexBuffer> index) {
 		using namespace std::string_literals;
 
-		std::string uid = typeid(InputLayout).name() + "#"s;
+		std::string uid = typeid(InputLayout).name() + "#"s + tag + "#"s;
 		for (auto v : vertex) {
 			uid += v->GetUID() + "__"s;
 		}
@@ -69,6 +70,6 @@ namespace Bind {
 	}
 
 	std::string InputLayout::GetUID() const noexcept {
-		return GenerateUID(m_vertex, m_index);
+		return GenerateUID(m_tag, m_vertex, m_index);
 	}
 }

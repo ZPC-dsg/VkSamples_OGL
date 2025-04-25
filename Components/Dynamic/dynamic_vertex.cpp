@@ -46,7 +46,7 @@ namespace Dynamic {
 			return size;
 		}
 
-		std::vector<VertexLayout::OGL_INPUT_ELEMENT_DESC> VertexLayout::GetOGLLayout() const noxnd {
+		std::vector<OGL_INPUT_ELEMENT_DESC> VertexLayout::GetOGLLayout() const noxnd {
 			std::vector<OGL_INPUT_ELEMENT_DESC> desc;
 			desc.reserve(GetElementCount());
 			for (const auto& e : m_elements) {
@@ -113,12 +113,12 @@ namespace Dynamic {
 
 		template <GLenum type>
 		struct DescGenerator {
-			static constexpr VertexLayout::OGL_INPUT_ELEMENT_DESC Exec(std::string name, Dynamic::Dsr::VertexAttrib attrib, size_t offset) noexcept {
+			static constexpr OGL_INPUT_ELEMENT_DESC Exec(std::string name, Dynamic::Dsr::VertexAttrib attrib, size_t offset) noexcept {
 				return { attrib.location, VertexLayout::Map<type>::row_ele_count, VertexLayout::Map<type>::col_ele_count,
 					VertexLayout::Map<type>::ele_format, offset };
 			}
 		};
-		VertexLayout::OGL_INPUT_ELEMENT_DESC VertexLayout::Element::GetDesc() const noxnd {
+		OGL_INPUT_ELEMENT_DESC VertexLayout::Element::GetDesc() const noxnd {
 			return Bridge<DescGenerator>(m_attrib.type, m_attrib.name, m_attrib, m_offset);
 		}
 

@@ -2,6 +2,7 @@
 
 #include <Macros/conditional_noexcept.h>
 #include <Dynamic/shader_reflection.h>
+#include <ogl_structures.h>
 
 #include <vector>
 #include <string>
@@ -167,14 +168,6 @@ namespace Dynamic {
 				Continuous
 			};
 
-			struct OGL_INPUT_ELEMENT_DESC {
-				GLuint sementic_location;
-				GLint element_count;
-				int element_column;//如果是矩阵，需要每一列指定一个顶点属性
-				GLenum element_type;
-				size_t byteoffset;
-			};
-			
 			class Element
 			{
 			public:

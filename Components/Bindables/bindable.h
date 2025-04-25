@@ -6,6 +6,7 @@
 #include <string>
 #include <cassert>
 #include <glad/glad.h>
+#include <unordered_set>
 
 class TechniqueProbe;
 class Drawable;
@@ -27,5 +28,7 @@ namespace Bind {
 		}
 		virtual ~Bindable() = default;
 		Bindable() = default;
+
+		static int AllocateID(std::unordered_set<int>& id_set);
 	};
 }

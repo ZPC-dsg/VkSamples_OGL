@@ -1,19 +1,9 @@
 #include <Bindables/dsstate.h>
 
 namespace Bind {
-	std::unordered_map<DepthStencilState::DSModes, std::string> DepthStencilState::name_map = { {Normal,std::string("normal")},
-		{DepthReverse,std::string("depth_reverse")},{DepthOff,std::string("depth_off")},{DepthWriteOff,"depthwrite_off"} };
-
-	DepthStencilState::DepthStencilState(DSModes mode) :m_mode(mode) {
-		if (mode & DepthReverse) {
-			(*this).with_depth_func(GL_GREATER);
-		}
-		else if (mode & DepthOff) {
-			(*this).with_depth_test(false).with_depth_write(false);
-		}
-		else if (mode & DepthWriteOff) {
-			(*this).with_depth_write(false);
-		}
+	DepthStencilState::DepthStencilState(const OGL_DEPTH_STENCIL_STATE& dsstate) 
+		: m_state(dsstate) 
+	{
 	}
 
 	void DepthStencilState::Bind() noxnd {
@@ -42,60 +32,16 @@ namespace Bind {
 		}
 	}
 
-	std::shared_ptr<DepthStencilState> DepthStencilState::Resolve(DSModes mode) {
-		return BindableResolver::Resolve<DepthStencilState>(mode);
+	std::shared_ptr<DepthStencilState> DepthStencilState::Resolve(const OGL_DEPTH_STENCIL_STATE& dsstate) {
+		return BindableResolver::Resolve<DepthStencilState>(dsstate);
 	}
 
-	std::string DepthStencilState::GenerateUID(DSModes mode) {
+	std::string DepthStencilState::GenerateUID(const OGL_DEPTH_STENCIL_STATE& mode) {
 		using namespace std::string_literals;
-		return typeid(DepthStencilState).name() + "#"s + name_map[mode];
+		return typeid(DepthStencilState).name() + "#"s + OGL_DEPTH_STENCIL_STATE::GlobalTag(mode);
 	}
 
 	std::string DepthStencilState::GetUID() const noexcept {
-		return GenerateUID(m_mode);
-	}
-	DepthStencilState& DepthStencilState::with_depth_func(GLenum func) {
-		m_state.depth_compare_op = func;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_depth_test(bool on) {
-		m_state.depth_enabled = on;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_depth_write(bool on) {
-		m_state.depth_write_enabled = on;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil(bool on) {
-		m_state.stencil_enabled = on;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_func(GLenum func) {
-		m_state.stencil_compare_op = func;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_compare_mask(GLuint mask) {
-		m_state.stencil_compare_mask = mask;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_write_mask(GLuint mask) {
-		m_state.stencil_write_mask = mask;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_ref(GLint ref) {
-		m_state.stencil_ref = ref;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_fail_op(GLenum op) {
-		m_state.stencil_fail_op = op;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_stencil_pass_depth_fail_op(GLenum op) {
-		m_state.stencil_pass_depth_fail_op = op;
-		return (*this);
-	}
-	DepthStencilState& DepthStencilState::with_depth_pass_op(GLenum op) {
-		m_state.depth_pass_op = op;
-		return (*this);
+		return GenerateUID(m_state);
 	}
 }

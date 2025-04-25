@@ -1,7 +1,6 @@
 #pragma once
 
-#include <Bindables/bindable.h>
-#include <Bindables/bindable_resolver.h>
+#include <Bindables/includer.h>
 
 namespace Bind {
 	class ShaderProgram {

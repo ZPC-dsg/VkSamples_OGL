@@ -1,7 +1,6 @@
 #pragma once
 
-#include <Bindables/bindable.h>
-#include <Bindables/bindable_resolver.h>
+#include <Bindables/includer.h>
 #include <Dynamic/dynamic_vertex.h>
 #include <resourcefactory.h>
 
@@ -9,7 +8,7 @@ namespace Bind {
 	class VertexBuffer {
 	public:
 		VertexBuffer(const std::string& tag, const Dynamic::Dvtx::CPUVertexBuffer& buffer);
-		VertexBuffer(const std::string& tag, const Dynamic::Dvtx::CPUVertexBuffer& layout, std::shared_ptr<RawBuffer> buffer);
+		VertexBuffer(const Dynamic::Dvtx::CPUVertexBuffer& layout, std::shared_ptr<RawBuffer> buffer);
 		~VertexBuffer() = default;
 
 		void Bind() noxnd;
@@ -20,12 +19,12 @@ namespace Bind {
 		std::string GetUID() const noexcept;
 
 		const Dynamic::Dvtx::VertexLayout& get_layout() const noexcept;
+		inline std::string resource_name() const noexcept { return m_buffer->ResourceName(); }
 
 	private:
 		static std::string genID_impl(const std::string& tag);
 
 	private:
-		std::string m_tag;
 		std::shared_ptr<RawBuffer> m_buffer;
 		Dynamic::Dvtx::VertexLayout m_layout;
 	};

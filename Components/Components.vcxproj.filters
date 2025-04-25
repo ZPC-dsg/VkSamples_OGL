@@ -141,6 +141,33 @@
     <ClInclude Include="Bindables\shaderprogram.h">
       <Filter>Bindables\头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ogl_structures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\rasterizer.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\includer.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\viewscissor.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\imagetexture2D.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\imagetexture2Darray.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\cubemap.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\rendertarget.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\abstracttexture.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="storageimage.cpp">
@@ -237,6 +264,33 @@
       <Filter>Dynamic\源文件</Filter>
     </ClCompile>
     <ClCompile Include="Bindables\shaderprogram.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ogl_structures.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\rasterizer.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\viewscissor.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\bindable.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\imagetexture2D.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\imagetexture2Darray.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\cubemap.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\rendertarget.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\abstracttexture.cpp">
       <Filter>Bindables\源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,11 +1,11 @@
-#include <compute_nbody.h>
 #include <dvtxTest.h>
+#include <bindableTest.h>
 #include <stb_image.h>
 
 int main() {
 	init();
 
-	DvtxTest app;
+	BindableTest app;
 	app.start();
 
 	fin();
