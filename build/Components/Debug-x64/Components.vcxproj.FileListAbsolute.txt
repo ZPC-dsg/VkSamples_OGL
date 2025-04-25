@@ -1,1 +1,1 @@
-E:\codes\openGL\VkSamples_OGL\build\Components\Debug-x64\Components.lib
+E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\Components.lib

@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\codes\\opengl\\vksamples_ogl\\components\\nocopyable.h",
+        "Source": "e:\\codes\\opengl\\zrrenderer\\components\\nocopyable.h",
         "ProvidedModule": "",
         "Includes": [],
         "ImportedModules": [],
