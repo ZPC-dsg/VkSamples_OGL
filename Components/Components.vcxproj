@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,6 +153,7 @@
     <ClInclude Include="Bindables\bindable.h" />
     <ClInclude Include="Bindables\bindable_resolver.h" />
     <ClInclude Include="Bindables\blendstate.h" />
+    <ClInclude Include="Bindables\constantbuffer.h" />
     <ClInclude Include="Bindables\cubemap.h" />
     <ClInclude Include="Bindables\dsstate.h" />
     <ClInclude Include="Bindables\imagetexture2D.h" />
@@ -170,8 +171,11 @@
     <ClInclude Include="computeshader.h" />
     <ClInclude Include="cpuTimer.h" />
     <ClInclude Include="Drawables\drawable.h" />
+    <ClInclude Include="Dynamic\dynamic_constant.h" />
     <ClInclude Include="Dynamic\dynamic_vertex.h" />
+    <ClInclude Include="Dynamic\constant_resolver.h" />
     <ClInclude Include="Dynamic\shader_reflection.h" />
+    <ClInclude Include="Dynamic\shader_reflection_resolver.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="Jobber\technique_probe.h" />
@@ -192,6 +196,7 @@
     <ClCompile Include="Bindables\abstracttexture.cpp" />
     <ClCompile Include="Bindables\bindable.cpp" />
     <ClCompile Include="Bindables\blendstate.cpp" />
+    <ClCompile Include="Bindables\constantbuffer.cpp" />
     <ClCompile Include="Bindables\cubemap.cpp" />
     <ClCompile Include="Bindables\dsstate.cpp" />
     <ClCompile Include="Bindables\imagetexture2D.cpp" />
@@ -208,8 +213,11 @@
     <ClCompile Include="computeshader.cpp" />
     <ClCompile Include="cpuTimer.cpp" />
     <ClCompile Include="Drawables\drawable.cpp" />
+    <ClCompile Include="Dynamic\dynamic_constant.cpp" />
     <ClCompile Include="Dynamic\dynamic_vertex.cpp" />
+    <ClCompile Include="Dynamic\constant_resolver.cpp" />
     <ClCompile Include="Dynamic\shader_reflection.cpp" />
+    <ClCompile Include="Dynamic\shader_reflection_resolver.cpp" />
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="gpuTimer.cpp" />
     <ClCompile Include="gpuTimer.h" />

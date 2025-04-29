@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "E:\\codes\\openGL\\ZRRenderer\\build\\Components\\Release-x64\\nocopyable.obj",
+            "outputs": [
+                "E:\\codes\\openGL\\ZRRenderer\\build\\Components\\Release-x64\\nocopyable.h_CEFAE07E1D57EE62.ifc.dt.module.json",
+                "E:\\codes\\openGL\\ZRRenderer\\build\\Components\\Release-x64\\nocopyable.h_CEFAE07E1D57EE62.ifc.dt.d.json",
+                "E:\\codes\\openGL\\ZRRenderer\\build\\Components\\Release-x64\\nocopyable.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "E:\\codes\\openGL\\ZRRenderer\\Components\\nocopyable.h",
+                    "source-path": "e:\\codes\\opengl\\zrrenderer\\components\\nocopyable.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

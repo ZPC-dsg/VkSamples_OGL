@@ -31,12 +31,14 @@ private:
 class AbstractResource :private NoCopyable {
 	friend class ResourceFactory;
 public:
-	AbstractResource(const std::string& name);
 	virtual ~AbstractResource() = default;
 
 	void SetDebugName(GLenum target, const std::string& tag) noxnd;
 
 	inline std::string ResourceName() const noexcept { return m_name; }
+
+protected:
+	AbstractResource(const std::string& name);
 
 protected:
 	GLuint m_resource;
@@ -46,18 +48,30 @@ protected:
 class RawBuffer :public AbstractResource {
 	friend class ResourceFactory;
 public:
-	RawBuffer(const std::string& name);
 	~RawBuffer();
 
 	void Bind(GLenum target) noxnd;
+	void BindBase(GLenum target, unsigned int binding_point) noxnd;
 	void Storage(size_t size, GLbitfield flags) noxnd;
-	void Update(size_t size, size_t offset, const void* data) noxnd;
+	void UpdateCopy(size_t size, size_t offset, const void* data) noxnd;
+	void UpdataMap(size_t size, size_t offset, const void* data) noxnd;
+	void MapRange(size_t offset, size_t length, GLbitfield flags = 0) noxnd;
+	bool UnMapRange() noxnd;
+	inline GLbitfield StorageFlags() const noexcept { return m_storage_flags; };
+	inline bool HasFlag(GLbitfield flag) const noexcept { return (m_storage_flags & flag) == flag; };
+
+private:
+	RawBuffer(const std::string& name);
+
+private:
+	GLbitfield m_storage_flags = 0;
+	void* m_data_pointer;
+	bool m_is_mapped = false;
 };
 
 class RawTexture2D :public AbstractResource {
 	friend class ResourceFactory;
 public:
-	RawTexture2D(const std::string& name, GLenum target);
 	~RawTexture2D();
 
 	void Bind(GLuint unit) noxnd;
@@ -78,14 +92,16 @@ public:
 	bool DepthOnly() const noexcept;
 
 private:
+	RawTexture2D(const std::string& name, GLenum target);
+
+private:
 	OGL_TEXTURE2D_DESC m_desc;
 	bool m_mipped = false;
 };
 
 class RawRenderBuffer :public AbstractResource {
-	friend class ResouorceFactory;
+	friend class ResourceFactory;
 public:
-	RawRenderBuffer(const std::string& name);
 	~RawRenderBuffer();
 
 	void Bind() noxnd;
@@ -94,6 +110,9 @@ public:
 	void BindAsRenderTarget(GLuint framebuffer, unsigned int order) noxnd;
 	void BindAsDepthStencil(GLuint framebuffer) noxnd;
 	void BindAsDepthComponent(GLuint framebuffer) noxnd;
+
+private:
+	RawRenderBuffer(const std::string& name);
 };
 
 

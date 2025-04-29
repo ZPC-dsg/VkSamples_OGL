@@ -1,0 +1,1 @@
+E:\codes\openGL\ZRRenderer\build\Components\Release-x64\Components.lib

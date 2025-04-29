@@ -153,6 +153,7 @@
     <ClCompile Include="dvtxTest.cpp" />
     <ClCompile Include="sceneTest.cpp" />
     <ClCompile Include="sceneTest.h" />
+    <ClCompile Include="testConstant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Components\Components.vcxproj">
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="bindableTest.h" />
     <ClInclude Include="dvtxTest.h" />
+    <ClInclude Include="testConstant.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,7 @@
 #include <init.h>
 #include <iostream>
 #include <GL/gl.h>
+#include <Dynamic/shader_reflection.h>
 
 unsigned int globalSettings::screen_width = 1280;
 unsigned int globalSettings::screen_height = 720;
@@ -26,7 +27,7 @@ void init() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
-    globalSettings::mainWindow = glfwCreateWindow(1280, 720, "compute_nbody", NULL, NULL);
+    globalSettings::mainWindow = glfwCreateWindow(1280, 720, "ZRRenderer", NULL, NULL);
     if (globalSettings::mainWindow == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -64,6 +65,8 @@ void init() {
     }
 
     glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY, &globalSettings::max_anisotropy);
+
+    Dynamic::Dsr::ShaderReflection::InitializeSizeMap();
 }
 
 void fin() {

@@ -4,7 +4,7 @@ namespace Bind {
 	VertexBuffer::VertexBuffer(const std::string& tag, const Dynamic::Dvtx::CPUVertexBuffer& buffer)
 		:m_layout(buffer.get_layout()) {
 		m_buffer = std::dynamic_pointer_cast<RawBuffer>(ResourceFactory::CreateBuffer(tag, buffer.BufferSize(), GL_DYNAMIC_STORAGE_BIT));
-		m_buffer->Update(buffer.BufferSize(), 0, buffer.get_data());
+		m_buffer->UpdateCopy(buffer.BufferSize(), 0, buffer.get_data());
 	}
 
 	VertexBuffer::VertexBuffer(const Dynamic::Dvtx::CPUVertexBuffer& layout, std::shared_ptr<RawBuffer> buffer) 

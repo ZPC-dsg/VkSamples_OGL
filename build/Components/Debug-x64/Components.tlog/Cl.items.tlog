@@ -1,6 +1,7 @@
 E:\codes\openGL\ZRRenderer\Components\Bindables\abstracttexture.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\abstracttexture.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\bindable.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\bindable.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\blendstate.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\blendstate.obj
+E:\codes\openGL\ZRRenderer\Components\Bindables\constantbuffer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\constantbuffer.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\cubemap.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\cubemap.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\dsstate.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\dsstate.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\imagetexture2D.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\imagetexture2D.obj
@@ -17,8 +18,11 @@ E:\codes\openGL\ZRRenderer\Components\camera.cpp;E:\codes\openGL\ZRRenderer\buil
 E:\codes\openGL\ZRRenderer\Components\computeshader.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\computeshader.obj
 E:\codes\openGL\ZRRenderer\Components\cpuTimer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\cpuTimer.obj
 E:\codes\openGL\ZRRenderer\Components\Drawables\drawable.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\drawable.obj
+E:\codes\openGL\ZRRenderer\Components\Dynamic\dynamic_constant.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\dynamic_constant.obj
 E:\codes\openGL\ZRRenderer\Components\Dynamic\dynamic_vertex.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\dynamic_vertex.obj
+E:\codes\openGL\ZRRenderer\Components\Dynamic\constant_resolver.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\constant_resolver.obj
 E:\codes\openGL\ZRRenderer\Components\Dynamic\shader_reflection.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\shader_reflection.obj
+E:\codes\openGL\ZRRenderer\Components\Dynamic\shader_reflection_resolver.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\shader_reflection_resolver.obj
 E:\codes\openGL\ZRRenderer\Components\geometry.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\geometry.obj
 E:\codes\openGL\ZRRenderer\Components\gpuTimer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\gpuTimer.obj
 E:\codes\openGL\ZRRenderer\Components\gpuTimer.h;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\gpuTimer.h.obj

@@ -168,6 +168,15 @@
     <ClInclude Include="Bindables\abstracttexture.h">
       <Filter>Bindables\头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Dynamic\dynamic_constant.h">
+      <Filter>Dynamic\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic\constant_resolver.h">
+      <Filter>Dynamic\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Bindables\constantbuffer.h">
+      <Filter>Bindables\头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="storageimage.cpp">
@@ -291,6 +300,15 @@
       <Filter>Bindables\源文件</Filter>
     </ClCompile>
     <ClCompile Include="Bindables\abstracttexture.cpp">
+      <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic\dynamic_constant.cpp">
+      <Filter>Dynamic\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic\constant_resolver.cpp">
+      <Filter>Dynamic\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Bindables\constantbuffer.cpp">
       <Filter>Bindables\源文件</Filter>
     </ClCompile>
   </ItemGroup>

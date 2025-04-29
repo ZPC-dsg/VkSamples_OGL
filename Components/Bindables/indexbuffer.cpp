@@ -4,7 +4,7 @@ namespace Bind {
 	IndexBuffer::IndexBuffer(const std::string& tag, const std::vector<uint32_t>& indices)
 		:m_count(indices.size()) {
 		m_buffer = std::dynamic_pointer_cast<RawBuffer>(ResourceFactory::CreateBuffer(tag, indices.size() * sizeof(uint32_t), GL_DYNAMIC_STORAGE_BIT));
-		m_buffer->Update(indices.size() * sizeof(uint32_t), 0, indices.data());
+		m_buffer->UpdateCopy(indices.size() * sizeof(uint32_t), 0, indices.data());
 	}
 
 	IndexBuffer::IndexBuffer(int count, std::shared_ptr<RawBuffer> buffer)

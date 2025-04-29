@@ -5,20 +5,20 @@ ResourceFactory& MainFactory = ResourceFactory::GetInstance();
 
 //ResourceFactory
 std::shared_ptr<AbstractResource> ResourceFactory::CreateBuffer(const std::string& name, size_t size, GLbitfield flags) noxnd {
-	std::shared_ptr<RawBuffer> buffer = std::make_shared<RawBuffer>(name);
+	std::shared_ptr<RawBuffer> buffer = std::shared_ptr<RawBuffer>(new RawBuffer(name));
 	buffer->Storage(size, flags);
 	return buffer;
 }
 
 std::shared_ptr<AbstractResource> ResourceFactory::CreateTexture2D(const std::string& name, const OGL_TEXTURE2D_DESC& desc) noxnd {
-	std::shared_ptr<RawTexture2D> texture2D = std::make_shared<RawTexture2D>(name, desc.target);
+	std::shared_ptr<RawTexture2D> texture2D = std::shared_ptr<RawTexture2D>(new RawTexture2D(name, desc.target));
 	texture2D->Storage(desc);
 	return texture2D;
 }
 
 std::shared_ptr<AbstractResource> ResourceFactory::CreateRenderBuffer(const std::string& name, GLenum internal_format, 
 	unsigned int width, unsigned int height, unsigned int sample) noxnd {
-	std::shared_ptr<RawRenderBuffer> renderbuffer = std::make_shared<RawRenderBuffer>(name);
+	std::shared_ptr<RawRenderBuffer> renderbuffer = std::shared_ptr<RawRenderBuffer>(new RawRenderBuffer(name));
 	renderbuffer->Storage(internal_format, width, height, sample);
 	return renderbuffer;
 }
@@ -41,6 +41,7 @@ RawBuffer::RawBuffer(const std::string& name) :AbstractResource(name) {
 }
 
 RawBuffer::~RawBuffer() {
+	UnMapRange();
 	glDeleteBuffers(1, &m_resource);
 }
 
@@ -48,12 +49,51 @@ void RawBuffer::Bind(GLenum target) noxnd {
 	glBindBuffer(target, m_resource);
 }
 
-void RawBuffer::Storage(size_t size, GLbitfield flags) noxnd {
-	glNamedBufferStorage(m_resource, size, NULL, flags);
+void RawBuffer::BindBase(GLenum target, unsigned int binding_point) noxnd {
+	glBindBufferBase(target, binding_point, m_resource);
 }
 
-void RawBuffer::Update(size_t size, size_t offset, const void* data) noxnd {
+void RawBuffer::Storage(size_t size, GLbitfield flags) noxnd {
+	glNamedBufferStorage(m_resource, size, NULL, flags);
+	m_storage_flags = flags;
+}
+
+void RawBuffer::UpdateCopy(size_t size, size_t offset, const void* data) noxnd {
 	glNamedBufferSubData(m_resource, offset, size, data);
+}
+
+void RawBuffer::UpdataMap(size_t size, size_t offset, const void* data) noxnd {
+	if ((!HasFlag(GL_DYNAMIC_STORAGE_BIT)) || !HasFlag(GL_MAP_WRITE_BIT)) {
+		return;
+	}
+
+	MapRange(offset, size, m_storage_flags ^ GL_DYNAMIC_STORAGE_BIT);
+	std::memcpy(m_data_pointer, data, size);
+
+	if (!HasFlag(GL_MAP_PERSISTENT_BIT)) {
+		UnMapRange();
+		return;
+	}
+	else if(!HasFlag(GL_MAP_COHERENT_BIT)) {
+		glMemoryBarrier(GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT);
+		return;
+	}
+	
+	return;
+}
+
+void RawBuffer::MapRange(size_t offset, size_t length, GLbitfield flags) noxnd {
+	if (!m_is_mapped) {
+		m_data_pointer = glMapNamedBufferRange(m_resource, offset, length, flags);
+		m_is_mapped = true;
+	}
+}
+
+bool RawBuffer::UnMapRange() noxnd {
+	if (m_is_mapped) {
+		m_is_mapped = false;
+		return glUnmapNamedBuffer(m_resource);
+	}
 }
 
 //RawTexture
