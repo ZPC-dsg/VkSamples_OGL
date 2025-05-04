@@ -9,7 +9,7 @@ namespace Bind {
 		Dynamic::Dsr::ConstantEntryPoint entry(buffer_name, cb);
 		m_cpubuffer = std::make_shared<Dynamic::Dcb::CPUConstantBuffer>(entry);
 
-		m_buffer = std::dynamic_pointer_cast<RawBuffer>(ResourceFactory::CreateBuffer(tag, m_cpubuffer->GetSizeInBytes(),
+		m_buffer = std::static_pointer_cast<RawBuffer>(ResourceFactory::CreateBuffer(tag, m_cpubuffer->GetSizeInBytes(),
 			GL_DYNAMIC_STORAGE_BIT | GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT));
 		m_buffer->BindBase(GL_UNIFORM_BUFFER, binding);
 	}
@@ -57,12 +57,20 @@ namespace Bind {
 		return typeid(ConstantBuffer).name() + "#"s + m_buffer->ResourceName() + "#"s + std::to_string(m_programID) + "#"s + m_buffer_name;
 	}
 
-	Dynamic::Dcb::ElementRef ConstantBuffer::operator[](const std::string& key) noxnd {
+	Dynamic::Dcb::ConstantElementRef ConstantBuffer::operator[](const std::string& key) noxnd {
 		return (*m_cpubuffer)[key];
 	}
 
-	Dynamic::Dcb::ConstElementRef ConstantBuffer::operator[](const std::string& key) const noxnd {
+	Dynamic::Dcb::ConstConstantElementRef ConstantBuffer::operator[](const std::string& key) const noxnd {
 		return (*m_cpubuffer)[key];
+	}
+
+	Dynamic::Dcb::ConstantElementRef ConstantBuffer::EditConstant(const std::string& key) noxnd {
+		return (*this)[key];
+	}
+
+	Dynamic::Dcb::ConstConstantElementRef ConstantBuffer::DisplayConstant(const std::string& key) const noxnd {
+		return (*this)[key];
 	}
 
 	void ConstantBuffer::Update() noxnd {

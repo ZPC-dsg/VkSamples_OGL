@@ -22,8 +22,7 @@ void BindableTest::prepare() {
 	m_box->set_model(glm::mat4(1.0));
 	const GeometryData& data = m_box->get_data();
 	m_shader = std::shared_ptr<Shader>(new Shader("test", "test.vert", "test.frag"));
-	Dynamic::Dsr::ShaderReflection reflection(m_shader);
-	std::vector<Dynamic::Dsr::VertexAttrib> attribs = reflection.GetVertexAttribs();
+	std::vector<Dynamic::Dsr::VertexAttrib> attribs = Dynamic::Dsr::ShaderReflection::GetVertexAttribs(m_shader->ID);
 	m_cpubuffer = std::make_shared<Dynamic::Dvtx::CPUVertexBuffer>(attribs, data.vertices.size(), Dynamic::Dvtx::VertexLayout::InputClassification::PerVertex, Dynamic::Dvtx::VertexLayout::InputSteppingType::Continuous);
 	m_cpubuffer->InitializeData(0, data.vertices, data.texcoords);
 	std::shared_ptr<Bind::VertexBuffer> vertex_buffer = std::make_shared<Bind::VertexBuffer>("vertex", *m_cpubuffer);

@@ -11,8 +11,7 @@ namespace Dynamic {
 				return i->second[name];
 			}
 			else {
-				ShaderReflection reflection(program);
-				const auto& cb = reflection.GetConstantAttribs();
+				const auto& cb = ShaderReflection::GetConstantAttribs(program->get_program());
 				constant_map[program->get_program()] = cb;
 				assert("Constant buffer name is invalid for this shader program!" && cb.contains(name));
 				return constant_map[program->get_program()][name];

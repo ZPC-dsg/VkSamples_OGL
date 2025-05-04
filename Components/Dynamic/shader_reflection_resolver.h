@@ -1,6 +1,5 @@
 #pragma once
 
-#include <Dynamic/shader_reflection.h>
 #include <Bindables/shaderprogram.h>
 
 namespace Dynamic {

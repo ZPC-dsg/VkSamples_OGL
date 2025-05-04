@@ -17,4 +17,5 @@ public:
 
 	std::shared_ptr<Shader> rshader;
 	std::shared_ptr<Bind::ConstantBuffer> m_constbuffer;
+	std::shared_ptr<Bind::ShaderProgram> m_shader;
 };

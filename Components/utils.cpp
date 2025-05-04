@@ -130,7 +130,8 @@ void Utils::start() {
 
         processInput();
 
-        render();
+        if(globalSettings::window_valid)
+            render();
 
         glfwSwapBuffers(globalSettings::mainWindow);
         glfwPollEvents();

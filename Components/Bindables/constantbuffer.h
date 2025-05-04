@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Bindables/includer.h>
-#include <Dynamic/dynamic_constant.h>
+#include <Bindables/shaderprogram.h>
 #include <resourcefactory.h>
 
 namespace Bind {
@@ -18,8 +18,11 @@ namespace Bind {
 		static std::string GenerateUID(std::shared_ptr<ShaderProgram> shader, const std::string& buffer_name, unsigned int binding, std::shared_ptr<RawBuffer> buffer);
 		std::string GetUID() const noexcept override;
 
-		Dynamic::Dcb::ElementRef operator[](const std::string& key) noxnd;
-		Dynamic::Dcb::ConstElementRef operator[](const std::string& key) const noxnd;
+		Dynamic::Dcb::ConstantElementRef operator[](const std::string& key) noxnd;
+		Dynamic::Dcb::ConstConstantElementRef operator[](const std::string& key) const noxnd;
+
+		Dynamic::Dcb::ConstantElementRef EditConstant(const std::string& key) noxnd;
+		Dynamic::Dcb::ConstConstantElementRef DisplayConstant(const std::string& key) const noxnd;
 
 		void Update() noxnd;
 

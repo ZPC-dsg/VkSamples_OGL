@@ -3,6 +3,7 @@
 #include <GL/gl.h>
 #include <Dynamic/shader_reflection.h>
 
+bool globalSettings::window_valid = true;
 unsigned int globalSettings::screen_width = 1280;
 unsigned int globalSettings::screen_height = 720;
 float globalSettings::deltaTime = 0.0f;
@@ -79,6 +80,13 @@ void fin() {
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    if (width == 0 || height == 0) {
+        globalSettings::window_valid = false;
+        return;
+    }
+    if (!globalSettings::window_valid) {
+        globalSettings::window_valid = true;
+    }
     glViewport(0, 0, width, height);
     globalSettings::screen_width = static_cast<unsigned int>(width);
     globalSettings::screen_height = static_cast<unsigned int>(height);

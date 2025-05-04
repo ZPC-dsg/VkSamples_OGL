@@ -163,6 +163,7 @@
     <ClInclude Include="Bindables\inputlayout.h" />
     <ClInclude Include="Bindables\rasterizer.h" />
     <ClInclude Include="Bindables\rendertarget.h" />
+    <ClInclude Include="Bindables\shaderobject.h" />
     <ClInclude Include="Bindables\shaderprogram.h" />
     <ClInclude Include="Bindables\vertexbuffer.h" />
     <ClInclude Include="Bindables\viewscissor.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="Bindables\inputlayout.cpp" />
     <ClCompile Include="Bindables\rasterizer.cpp" />
     <ClCompile Include="Bindables\rendertarget.cpp" />
+    <ClCompile Include="Bindables\shaderobject.cpp" />
     <ClCompile Include="Bindables\shaderprogram.cpp" />
     <ClCompile Include="Bindables\vertexbuffer.cpp" />
     <ClCompile Include="Bindables\viewscissor.cpp" />

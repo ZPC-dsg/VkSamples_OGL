@@ -25,6 +25,7 @@ void APIENTRY glDebugOutput(GLenum source,
 	const void* userParam);
 
 namespace globalSettings {
+	extern bool window_valid;
 	extern unsigned int screen_width;
 	extern unsigned int screen_height;
 	extern float deltaTime;

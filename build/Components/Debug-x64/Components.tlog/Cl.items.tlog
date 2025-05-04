@@ -10,6 +10,7 @@ E:\codes\openGL\ZRRenderer\Components\Bindables\indexbuffer.cpp;E:\codes\openGL\
 E:\codes\openGL\ZRRenderer\Components\Bindables\inputlayout.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\inputlayout.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\rasterizer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\rasterizer.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\rendertarget.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\rendertarget.obj
+E:\codes\openGL\ZRRenderer\Components\Bindables\shaderobject.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\shaderobject.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\shaderprogram.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\shaderprogram.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\vertexbuffer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\vertexbuffer.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\viewscissor.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\viewscissor.obj
