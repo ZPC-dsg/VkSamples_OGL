@@ -15,6 +15,8 @@ namespace Bind {
 		static std::string GenerateUID(const OGL_DEPTH_STENCIL_STATE& mode);
 		std::string GetUID() const noexcept override;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		OGL_DEPTH_STENCIL_STATE m_state;
 	};

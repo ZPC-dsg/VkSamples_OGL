@@ -28,4 +28,8 @@ namespace Bind {
 		using namespace std::string_literals;
 		return typeid(VertexBuffer).name() + "#"s + tag;
 	}
+
+	unsigned int VertexBuffer::VertexCount() const noexcept {
+		return m_layout.GetCount();
+	}
 }

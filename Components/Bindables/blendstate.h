@@ -20,6 +20,8 @@ namespace Bind {
 
 		inline glm::vec4 get_factor() { return m_blendstate.blend_factor ? m_blendstate.blend_factor.value() : glm::vec4(-1); }
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		OGL_BLEND_STATE m_blendstate;
 	};

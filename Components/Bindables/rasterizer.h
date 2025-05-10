@@ -13,6 +13,8 @@ namespace Bind {
 		static std::string GenerateUID(const OGL_RASTERIZER_STATE& rststate);
 		std::string GetUID() const noexcept override;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		OGL_RASTERIZER_STATE m_state;
 	};

@@ -215,6 +215,10 @@ namespace Bind {
 		return m_depthstencil;
 	}
 
+	std::type_index RenderTarget::GetTypeInfo() const noexcept {
+		return typeid(RenderTarget);
+	}
+
 #define X(Target) \
 	template <> \
 	RenderTarget& RenderTarget::AppendTexture<Target>(const std::string& tag, unsigned int slices) noxnd { \

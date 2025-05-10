@@ -81,4 +81,8 @@ namespace Bind {
 		return m_path[0].length() ? GenerateUID(resource_name(), m_path, m_params, m_unit, false) :
 			GenerateUID(m_resource, m_params, m_unit, false);
 	}
+
+	std::type_index CubeMap::GetTypeInfo() const noexcept {
+		return typeid(CubeMap);
+	}
 }

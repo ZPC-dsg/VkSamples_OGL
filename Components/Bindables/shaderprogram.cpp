@@ -170,4 +170,8 @@ namespace Bind {
 			return;
 		}
 	}
+
+	std::type_index ShaderProgram::GetTypeInfo() const noexcept {
+		return typeid(ShaderProgram);
+	}
 }

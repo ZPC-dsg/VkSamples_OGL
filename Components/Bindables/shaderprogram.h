@@ -21,6 +21,8 @@ namespace Bind {
 		Dynamic::Dcb::CPUUniformBlock& operator[](const std::string& key) noxnd;
 		Dynamic::Dcb::CPUUniformBlock& EditUniform(const std::string& key) noxnd;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		static void CheckCompileErrors(GLuint program);
 

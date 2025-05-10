@@ -62,4 +62,8 @@ namespace Bind {
 		return m_path.length() ? GenerateUID(resource_name(), m_path, m_params, m_unit, false) :
 			GenerateUID(m_resource, m_params, m_unit, false);//最后一个参数不影响名称
 	}
+
+	std::type_index ImageTexture2D::GetTypeInfo() const noexcept {
+		return typeid(ImageTexture2D);
+	}
 }

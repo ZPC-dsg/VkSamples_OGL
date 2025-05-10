@@ -7,6 +7,7 @@
 #include <cassert>
 #include <glad/glad.h>
 #include <unordered_set>
+#include <typeindex>
 
 class TechniqueProbe;
 class Drawable;
@@ -28,6 +29,8 @@ namespace Bind {
 		}
 		virtual ~Bindable() = default;
 		Bindable() = default;
+
+		virtual std::type_index GetTypeInfo() const noexcept = 0;
 
 		static int AllocateID(std::unordered_set<int>& id_set);
 	};

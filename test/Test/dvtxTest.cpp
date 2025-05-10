@@ -32,7 +32,7 @@ void DvtxTest::prepare() {
 	m_cpubuffer->InitializeData(0, data.vertices, data.texcoords);
 	std::shared_ptr<Bind::VertexBuffer> vertex_buffer = std::make_shared<Bind::VertexBuffer>("vertex", *m_cpubuffer);
 	std::shared_ptr<Bind::IndexBuffer> index_buffer = std::make_shared<Bind::IndexBuffer>("index", data.indices32);
-	m_layout = std::make_shared<Bind::InputLayout>("input", std::vector<std::shared_ptr<Bind::VertexBuffer>>{ vertex_buffer }, index_buffer);
+	m_layout = std::make_shared<Bind::InputLayout>("input", std::vector<std::shared_ptr<Bind::VertexBuffer>>{ vertex_buffer }, std::vector<std::shared_ptr<Bind::VertexBuffer>>{}, index_buffer);
 	m_shader->use();
 }
 

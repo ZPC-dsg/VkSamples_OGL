@@ -44,4 +44,8 @@ namespace Bind {
 	std::string DepthStencilState::GetUID() const noexcept {
 		return GenerateUID(m_state);
 	}
+
+	std::type_index DepthStencilState::GetTypeInfo() const noexcept {
+		return typeid(DepthStencilState);
+	}
 }

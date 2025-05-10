@@ -16,6 +16,8 @@ namespace Bind {
 		static std::string GenerateUID();
 		std::string GetUID() const noexcept override;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		OGL_VIEWPORT_SCISSOR_STATE m_state;
 	};

@@ -100,6 +100,8 @@ namespace Bind {
 		inline unsigned int get_width() const noexcept { return m_width; }
 		inline unsigned int get_height() const noexcept { return m_height; }
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		void gen_framebuffer(unsigned int* mips, unsigned int* slices, bool is_renderbuffer, bool is_depthonly) noxnd;
 

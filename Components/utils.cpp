@@ -8,6 +8,13 @@ Utils::Utils() {
     genQuad();
 }
 
+Utils::Utils(const std::string& name)
+    :m_main_scene(name)
+{
+    genCube();
+    genQuad();
+}
+
 Utils::~Utils() {
     glBindVertexArray(0);
     glDeleteVertexArrays(1, &cubeVAO);

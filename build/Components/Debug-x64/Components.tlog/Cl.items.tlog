@@ -1,3 +1,4 @@
+E:\codes\openGL\ZRRenderer\Components\assimploader.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\assimploader.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\abstracttexture.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\abstracttexture.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\bindable.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\bindable.obj
 E:\codes\openGL\ZRRenderer\Components\Bindables\blendstate.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\blendstate.obj
@@ -19,6 +20,7 @@ E:\codes\openGL\ZRRenderer\Components\camera.cpp;E:\codes\openGL\ZRRenderer\buil
 E:\codes\openGL\ZRRenderer\Components\computeshader.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\computeshader.obj
 E:\codes\openGL\ZRRenderer\Components\cpuTimer.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\cpuTimer.obj
 E:\codes\openGL\ZRRenderer\Components\Drawables\drawable.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\drawable.obj
+E:\codes\openGL\ZRRenderer\Components\Drawables\modelmesh.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\modelmesh.obj
 E:\codes\openGL\ZRRenderer\Components\Dynamic\dynamic_constant.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\dynamic_constant.obj
 E:\codes\openGL\ZRRenderer\Components\Dynamic\dynamic_vertex.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\dynamic_vertex.obj
 E:\codes\openGL\ZRRenderer\Components\Dynamic\constant_resolver.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\constant_resolver.obj
@@ -29,12 +31,17 @@ E:\codes\openGL\ZRRenderer\Components\gpuTimer.cpp;E:\codes\openGL\ZRRenderer\bu
 E:\codes\openGL\ZRRenderer\Components\gpuTimer.h;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\gpuTimer.h.obj
 E:\codes\openGL\ZRRenderer\Components\init.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\init.obj
 E:\codes\openGL\ZRRenderer\Components\Jobber\technique_probe.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\technique_probe.obj
+E:\codes\openGL\ZRRenderer\Components\logging.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\logging.obj
 E:\codes\openGL\ZRRenderer\Components\mesh.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\mesh.obj
 E:\codes\openGL\ZRRenderer\Components\models.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\models.obj
 E:\codes\openGL\ZRRenderer\Components\nocopyable.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\nocopyable.obj
 E:\codes\openGL\ZRRenderer\Components\nocopyable.h;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\nocopyable.h.obj
 E:\codes\openGL\ZRRenderer\Components\ogl_structures.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\ogl_structures.obj
 E:\codes\openGL\ZRRenderer\Components\resourcefactory.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\resourcefactory.obj
+E:\codes\openGL\ZRRenderer\Components\SceneGraph\material.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\material.obj
+E:\codes\openGL\ZRRenderer\Components\SceneGraph\node.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\node.obj
+E:\codes\openGL\ZRRenderer\Components\SceneGraph\scene.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\scene.obj
+E:\codes\openGL\ZRRenderer\Components\SceneGraph\transform.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\transform.obj
 E:\codes\openGL\ZRRenderer\Components\shader.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\shader.obj
 E:\codes\openGL\ZRRenderer\Components\storageimage.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\storageimage.obj
 E:\codes\openGL\ZRRenderer\Components\test.cpp;E:\codes\openGL\ZRRenderer\build\Components\Debug-x64\test.obj

@@ -51,4 +51,8 @@ namespace Bind {
 	std::string ViewScissor::GetUID() const noexcept {
 		return GenerateUID(m_state);
 	}
+
+	std::type_index ViewScissor::GetTypeInfo() const noexcept {
+		return typeid(ViewScissor);
+	}
 }

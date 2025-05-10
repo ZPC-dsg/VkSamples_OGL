@@ -21,6 +21,8 @@ namespace Bind {
 		const Dynamic::Dvtx::VertexLayout& get_layout() const noexcept;
 		inline std::string resource_name() const noexcept { return m_buffer->ResourceName(); }
 
+		unsigned int VertexCount() const noexcept;
+
 	private:
 		static std::string genID_impl(const std::string& tag);
 

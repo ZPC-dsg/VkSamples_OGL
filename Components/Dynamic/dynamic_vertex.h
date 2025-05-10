@@ -227,6 +227,7 @@ namespace Dynamic {
 
 		class CPUVertexBuffer {
 		public:
+			//构造实例缓冲的时候vertices代表实例数
 			CPUVertexBuffer(std::vector<Dynamic::Dsr::VertexAttrib> attribs, unsigned int vertices, VertexLayout::InputClassification classification = VertexLayout::InputClassification::PerVertex,
 				VertexLayout::InputSteppingType type = VertexLayout::InputSteppingType::Interleaved) noxnd;
 

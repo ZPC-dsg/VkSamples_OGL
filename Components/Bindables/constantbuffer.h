@@ -26,6 +26,8 @@ namespace Bind {
 
 		void Update() noxnd;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		std::shared_ptr<RawBuffer> m_buffer;
 		std::shared_ptr<Dynamic::Dcb::CPUConstantBuffer> m_cpubuffer;

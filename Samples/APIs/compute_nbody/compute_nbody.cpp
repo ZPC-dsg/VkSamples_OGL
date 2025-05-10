@@ -1,3 +1,4 @@
+/*
 #include <compute_nbody.h>
 
 #include <glm/glm.hpp>
@@ -203,3 +204,5 @@ void Compute_nBody::prepare_ui(const std::string& name) {
 
 	draw_ui();
 }
+
+*/

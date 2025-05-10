@@ -29,4 +29,8 @@ namespace Bind {
 	std::string BlendState::GetUID() const noexcept {
 		return GenerateUID(m_blendstate);
 	}
+
+	std::type_index BlendState::GetTypeInfo() const noexcept {
+		return typeid(BlendState);
+	}
 }

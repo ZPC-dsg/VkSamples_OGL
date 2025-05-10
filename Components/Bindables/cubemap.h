@@ -18,6 +18,8 @@ namespace Bind {
 		static std::string GenerateUID(std::shared_ptr<RawTexture2D> cubemap, const OGL_TEXTURE_PARAMETER& param, GLuint unit, bool generate_mip = false);
 		std::string GetUID() const noexcept override;
 
+		std::type_index GetTypeInfo() const noexcept override;
+
 	private:
 		std::array<std::string, 6> m_path{};
 	};

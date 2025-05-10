@@ -1,5 +1,6 @@
 #pragma once
 
+/*
 #include <memory>
 #include <storageimage.h>
 #include <buffer.h>
@@ -80,3 +81,5 @@ private:
 	void draw();
 	void compute();
 };
+
+*/

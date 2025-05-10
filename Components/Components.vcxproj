@@ -115,7 +115,8 @@
       <PreprocessorDefinitions>SOLUTION_DIR=$(SolutionDir);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;$(SolutionDir)third_party\spdlog\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +136,8 @@
       <PreprocessorDefinitions>SOLUTION_DIR=$(SolutionDir);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)third_party\glfw\glad\include\;$(SolutionDir)third_party\stb_image\stb\;$(SolutionDir)third_party\glm-1.0.1-light\;$(SolutionDir)third_party\imgui\;$(SolutionDir)third_party\glfw\glfw-3.4.bin.WIN64\glfw-3.4.bin.WIN64\include\;$(ProjectDir)\;$(SolutionDir)third_party\;$(SolutionDir)third_party\imgui\backends\;$(SolutionDir)third_party\assimp\include\;$(SolutionDir)third_party\assimp\include\include\;$(SolutionDir)third_party\spdlog\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +151,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="assimploader.h" />
     <ClInclude Include="Bindables\abstracttexture.h" />
     <ClInclude Include="Bindables\bindable.h" />
     <ClInclude Include="Bindables\bindable_resolver.h" />
@@ -172,6 +175,7 @@
     <ClInclude Include="computeshader.h" />
     <ClInclude Include="cpuTimer.h" />
     <ClInclude Include="Drawables\drawable.h" />
+    <ClInclude Include="Drawables\modelmesh.h" />
     <ClInclude Include="Dynamic\dynamic_constant.h" />
     <ClInclude Include="Dynamic\dynamic_vertex.h" />
     <ClInclude Include="Dynamic\constant_resolver.h" />
@@ -180,11 +184,16 @@
     <ClInclude Include="geometry.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="Jobber\technique_probe.h" />
+    <ClInclude Include="logging.h" />
     <ClInclude Include="Macros\conditional_noexcept.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="models.h" />
     <ClInclude Include="ogl_structures.h" />
     <ClInclude Include="resourcefactory.h" />
+    <ClInclude Include="SceneGraph\material.h" />
+    <ClInclude Include="SceneGraph\node.h" />
+    <ClInclude Include="SceneGraph\scene.h" />
+    <ClInclude Include="SceneGraph\transform.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="storageimage.h" />
     <ClInclude Include="test.h" />
@@ -194,6 +203,7 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assimploader.cpp" />
     <ClCompile Include="Bindables\abstracttexture.cpp" />
     <ClCompile Include="Bindables\bindable.cpp" />
     <ClCompile Include="Bindables\blendstate.cpp" />
@@ -215,6 +225,7 @@
     <ClCompile Include="computeshader.cpp" />
     <ClCompile Include="cpuTimer.cpp" />
     <ClCompile Include="Drawables\drawable.cpp" />
+    <ClCompile Include="Drawables\modelmesh.cpp" />
     <ClCompile Include="Dynamic\dynamic_constant.cpp" />
     <ClCompile Include="Dynamic\dynamic_vertex.cpp" />
     <ClCompile Include="Dynamic\constant_resolver.cpp" />
@@ -225,12 +236,17 @@
     <ClCompile Include="gpuTimer.h" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="Jobber\technique_probe.cpp" />
+    <ClCompile Include="logging.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="models.cpp" />
     <ClCompile Include="nocopyable.cpp" />
     <ClCompile Include="nocopyable.h" />
     <ClCompile Include="ogl_structures.cpp" />
     <ClCompile Include="resourcefactory.cpp" />
+    <ClCompile Include="SceneGraph\material.cpp" />
+    <ClCompile Include="SceneGraph\node.cpp" />
+    <ClCompile Include="SceneGraph\scene.cpp" />
+    <ClCompile Include="SceneGraph\transform.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="storageimage.cpp" />
     <ClCompile Include="test.cpp" />
@@ -244,6 +260,9 @@
   <ItemGroup>
     <ProjectReference Include="..\build\third_party\imgui\imgui.vcxproj">
       <Project>{ae1102fe-e3bb-49e4-8a61-56f3fce6b342}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\third_party\spdlog\spdlog.vcxproj">
+      <Project>{8ddeb6bb-37e8-48b0-81aa-e26724e7dcb3}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -56,4 +56,8 @@ namespace Bind {
 	std::string Rasterizer::GetUID() const noexcept {
 		return GenerateUID(m_state);
 	}
+
+	std::type_index Rasterizer::GetTypeInfo() const noexcept {
+		return typeid(Rasterizer);
+	}
 }

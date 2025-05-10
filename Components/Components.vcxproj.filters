@@ -52,6 +52,15 @@
     <Filter Include="Dynamic\源文件">
       <UniqueIdentifier>{3b7950d4-d44e-48e6-9114-e35d59550045}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SceneGraph">
+      <UniqueIdentifier>{0b1cf69e-9fd0-4c2a-ac2f-4ca8f3f24dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneGraph\头文件">
+      <UniqueIdentifier>{8b99a549-30b3-42f3-ae08-ff4ac9714bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneGraph\源文件">
+      <UniqueIdentifier>{bf12314f-42b6-4857-a027-c4e86af8125d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -182,6 +191,27 @@
     </ClInclude>
     <ClInclude Include="Bindables\shaderobject.h">
       <Filter>Bindables\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph\scene.h">
+      <Filter>SceneGraph\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="logging.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph\node.h">
+      <Filter>SceneGraph\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph\transform.h">
+      <Filter>SceneGraph\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="assimploader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGraph\material.h">
+      <Filter>SceneGraph\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawables\modelmesh.h">
+      <Filter>Drawables\头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +352,27 @@
     </ClCompile>
     <ClCompile Include="Bindables\shaderobject.cpp">
       <Filter>Bindables\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph\scene.cpp">
+      <Filter>SceneGraph\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="logging.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph\node.cpp">
+      <Filter>SceneGraph\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph\transform.cpp">
+      <Filter>SceneGraph\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="assimploader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGraph\material.cpp">
+      <Filter>SceneGraph\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawables\modelmesh.cpp">
+      <Filter>Drawables\源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

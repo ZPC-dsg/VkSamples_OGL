@@ -5,6 +5,7 @@
 #include <nocopyable.h>
 #include <cpuTimer.h>
 #include <gpuTimer.h>
+#include <SceneGraph/scene.h>
 
 #include <stdexcept>
 
@@ -12,6 +13,7 @@ class Utils : private NoCopyable
 {
 public:
 	Utils();
+	Utils(const std::string& name);
 	virtual ~Utils();
 
 	void renderCube();
@@ -27,7 +29,9 @@ public:
 	void ui_newFrame();
 	void draw_ui();
 
-private:
+	void AppendSceneNode(std::unique_ptr<SceneGraph::Node>&& node);//TODO
+
+protected:
 	unsigned int cubeVAO = 0;
 	unsigned int cubeVBO = 0;
 	unsigned int quadVAO = 0;
@@ -40,4 +44,6 @@ private:
 	void genQuad();
 
 	void processInput();
+
+	SceneGraph::Scene m_main_scene;
 };
